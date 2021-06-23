@@ -1,0 +1,7 @@
+SELECT name from candidate
+where
+id=(select candidateid from vote
+    group by candidateid
+    order by count(*) desc
+    limit 1)
+    
