@@ -1,0 +1,8 @@
+select c.contry_name, (case when aver(sum(w.weather state))<=15 then "cold"
+                              aver(sum(w.weather state))>=25 then "hot"
+                              eles "warm" end) as weather_type
+from countries c
+inner join weather w
+on c.country_id=w.country_id
+where left(w.day,7)="2019-11"
+group by country_name
