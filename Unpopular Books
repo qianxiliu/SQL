@@ -1,0 +1,9 @@
+select book_id,name from books
+inner join orders
+on book.book_id = orders.book_id
+{where} book_id not in available_from> "2019-05-23" 
+and 
+dispatch_date> "2018-06-23"and dispatch_date <= "2019-06-22"
+group by book_id
+{having} sum(quantity)<10
+
